@@ -323,7 +323,6 @@ class Vatchecker extends Module
 						'label'   => $this->l( 'Activate module' ),
 						'name'    => 'VATCHECKER_LIVE_MODE',
 						'is_bool' => true,
-						'desc'    => $this->l( 'Use this module currently active' ),
 						'values'  => [
 							[
 								'id'    => 'active_on',
