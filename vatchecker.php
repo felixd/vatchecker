@@ -106,7 +106,8 @@ class Vatchecker extends Module
 		parent::__construct();
 
 		$this->displayName = $this->l( 'VAT Checker' );
-		$this->description = $this->l( 'Check if a customers VAT number is valid and gives the customer 0 tax if the customer is not in from country.' );
+		$this->description = $this->l( 'The module verifies whether a customer possesses a valid EU VAT number. Upon validation, it grants the customer a 0% tax rate if they are from the EU and not from the same country as the shop\'s location.' );
+		
 
 		$this->ps_versions_compliancy = [ 'min' => '1.7', 'max' => _PS_VERSION_ ];
 	}
@@ -380,7 +381,7 @@ class Vatchecker extends Module
 					[
 						'col'      => 3,
 						'type'     => 'checkbox',
-						'desc'     => $this->l( 'Select EU countries that can order without VAT' ),
+						'desc'     => $this->l( 'Select EU countries that can order with without VAT' ),
 						'name'     => 'VATCHECKER_EU_COUNTRIES',
 						'label'    => $this->l( 'Enabled EU countries' ),
 						'multiple' => true,
@@ -394,7 +395,7 @@ class Vatchecker extends Module
 					[
 						'type'     => 'select',
 						'label'    => $this->l( 'Business customer group' ),
-						'desc'     => $this->l( 'If a customer is has a validated VAT number set the selected group. (NOT REQUIRED)' ),
+						'desc'     => $this->l( 'If a customer has a validated VAT number, set the selected group. (OPTIONAL)' ),
 						'name'     => 'VATCHECKER_CUSTOMER_GROUP',
 						'required' => true,
 						'options'  => [
