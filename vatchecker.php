@@ -106,7 +106,7 @@ class Vatchecker extends Module
 		parent::__construct();
 
 		$this->displayName = $this->l( 'VAT Checker' );
-		$this->description = $this->l( 'The module verifies whether a customer possesses a valid EU VAT number. Upon validation, it grants the customer a 0% tax rate if they are from the EU and not from the same country as the shop\'s location.' );
+		$this->description = $this->l( 'The module verifies whether a customer possesses a valid EU VAT VIES number. Upon validation, it automatically grants the customer a 0% tax rate if they are from the EU but not from the same country as the shop is.' );
 		
 
 		$this->ps_versions_compliancy = [ 'min' => '1.7', 'max' => _PS_VERSION_ ];
@@ -342,7 +342,7 @@ class Vatchecker extends Module
 						'label'   => $this->l( 'Offline validation' ),
 						'name'    => 'VATCHECKER_ALLOW_OFFLINE',
 						'required' => false,
-						'desc'    => $this->l( 'What logic should the module use when the VIES database is offline?' ),
+						'desc'    => $this->l( 'What should be done when the EU VAT VIES service is offline?' ),
 						'values' => [
 							[
 								'id' => 'invalid',
@@ -369,7 +369,7 @@ class Vatchecker extends Module
 					[
 						'col'     => 3,
 						'type'    => 'select',
-						'desc'    => $this->l( 'Select shops country' ),
+						'desc'    => $this->l( 'Select your store location' ),
 						'name'    => 'VATCHECKER_ORIGIN_COUNTRY',
 						'label'   => $this->l( 'Origin country' ),
 						'options' => [
@@ -381,7 +381,7 @@ class Vatchecker extends Module
 					[
 						'col'      => 3,
 						'type'     => 'checkbox',
-						'desc'     => $this->l( 'Select EU countries that can order with without VAT' ),
+						'desc'     => $this->l( 'Select EU countries that can order with 0% VAT' ),
 						'name'     => 'VATCHECKER_EU_COUNTRIES',
 						'label'    => $this->l( 'Enabled EU countries' ),
 						'multiple' => true,
@@ -395,7 +395,7 @@ class Vatchecker extends Module
 					[
 						'type'     => 'select',
 						'label'    => $this->l( 'Business customer group' ),
-						'desc'     => $this->l( 'If a customer has a validated VAT number, set the selected group. (OPTIONAL)' ),
+						'desc'     => $this->l( 'If a customer has a validated VAT VIES number, assign them to the selected group. (OPTIONAL)' ),
 						'name'     => 'VATCHECKER_CUSTOMER_GROUP',
 						'required' => true,
 						'options'  => [
